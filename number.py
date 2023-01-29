@@ -160,13 +160,17 @@ class Number:
 
         returns: float
         """
-        sum = 0
-        value = self.value
-        while value:
-            num = value % 10
-            sum += num
-            value //= 10
-        return sum/len(self.value)
+        data = self.get_digits()
+        return sum(data)/len(data)
+        # sum = 0
+        # value = self.value
+        # list = []
+        # while value:
+        #     num = value % 10
+        #     sum += num
+        #     list.append(num)
+        #     value //= 10
+        # return sum/len(list)
 
     def get_median(self):
         """
@@ -175,11 +179,18 @@ class Number:
         returns: float
         """
         data = self.get_digits()
+        data.sort()
         leng = len(data)
-        sum = 0
-        for d in data:
-            sum += d
-        return sum/leng
+        median = 0
+        m1 = 0
+        m2 = 0
+        if leng % 2 == 1:
+            median = data[leng//2]
+        else:
+            m1 = data[leng//2-1]
+            m2 = data[leng//2]
+            median = (m1+m2)/2
+        return float(median)
 
     def get_range(self):
         """
