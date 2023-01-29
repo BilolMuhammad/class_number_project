@@ -118,7 +118,9 @@ class Number:
             num = value % 10
             list.append(num)
             value //= 10
-        return list[::-1]
+        if len(list) == 0:
+            list.append(0)
+        return list
 
     def get_max(self):
         """
