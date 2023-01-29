@@ -49,8 +49,10 @@ class Number:
         returns: list
         """
         list = []
-        for n in range(1, self.value+1):
-            list.append(n)
+        value = self.value
+        for n in range(1, value):
+            if value % n == 0:
+                list.append(n)
         return list
 
     def get_length(self):
@@ -199,18 +201,7 @@ class Number:
         returns: list
         """
         data = self.get_digits()
-        max = data[0]
-        min = data[0]
-
-        for d in data:
-            if d > max:
-                max = d
-            if d < min:
-                min = d
-        return max-min
-
-        # data = self.get_digits()
-        # return max(data)-min(data)
+        return max(data)-min(data)
 
     def get_frequency(self):
         """
