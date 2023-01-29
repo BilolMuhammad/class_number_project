@@ -50,7 +50,7 @@ class Number:
         """
         list = []
         value = self.value
-        for n in range(1, value):
+        for n in range(1, value+1):
             if value % n == 0:
                 list.append(n)
         return list
