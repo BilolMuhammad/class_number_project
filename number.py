@@ -37,10 +37,10 @@ class Number:
         for num in range(2, self.value):
             if self.value % num == 0:
                 count += 1
-            if count == 0:
-                return True
-            else:
-                return False
+        if count == 0:
+            return True
+        else:
+            return False
 
     def get_divisors(self):
         """
