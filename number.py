@@ -94,7 +94,14 @@ class Number:
 
         returns: bool
         """
-        pass
+        d = self.get_digits()
+        n = len(d)
+        if n % 2 == 0:
+            return d[:n//2] == d[:n//2-1:-1]
+        else:
+            return d[:n//2] == d[:n//2:-1]
+
+        #      d==d[::-1]
 
     def get_digits(self):
         """
@@ -102,12 +109,14 @@ class Number:
 
         returns: list
         """
-        lis = []
-        dig = self.value
-        while dig:
-            lis.append(dig % 10)
-            dig //= 10
-        return lis
+        list = []
+        value = self.value
+
+        while value > 0:
+            num = value % 10
+            list.append(num)
+            value //= 10
+        return list
 
     def get_max(self):
         """
@@ -157,7 +166,7 @@ class Number:
             num = value % 10
             sum += num
             value //= 10
-        return sum//(self.value)
+        return sum/len(self.value)
 
     def get_median(self):
         """
@@ -165,7 +174,12 @@ class Number:
 
         returns: float
         """
-        pass
+        data = self.get_digits()
+        leng = len(data)
+        sum = 0
+        for d in data:
+            sum += d
+        return sum/leng
 
     def get_range(self):
         """
@@ -173,7 +187,19 @@ class Number:
 
         returns: list
         """
-        pass
+        data = self.get_digits()
+        max = data[0]
+        min = data[0]
+
+        for d in data:
+            if d > max:
+                max = d
+            if d < min:
+                min = d
+        return max-min
+
+        # data = self.get_digits()
+        # return max(data)-min(data)
 
     def get_frequency(self):
         """
@@ -181,7 +207,15 @@ class Number:
 
         returns: dict
         """
-        pass
+        data = self.get_digits()
+        frequency = {}
+
+        for d in data:
+            if d in frequency:
+                frequency[d] += 1
+            else:
+                frequency[d] = 1
+        return frequency
 
 
 # Create a new instance of Number
