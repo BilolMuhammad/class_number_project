@@ -120,7 +120,7 @@ class Number:
             value //= 10
         if len(list) == 0:
             list.append(0)
-        return list
+        return list[::-1]
 
     def get_max(self):
         """
