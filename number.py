@@ -118,7 +118,7 @@ class Number:
             num = value % 10
             list.append(num)
             value //= 10
-        return list
+        return list[::-1]
 
     def get_max(self):
         """
@@ -201,7 +201,7 @@ class Number:
         returns: list
         """
         data = self.get_digits()
-        return max(data)-min(data)
+        return [min(data), max(data)]
 
     def get_frequency(self):
         """
@@ -217,6 +217,10 @@ class Number:
                 frequency[d] += 1
             else:
                 frequency[d] = 1
+        if len(frequency) == 0:
+            frequency[0] = 1
+        else:
+            frequency
         return frequency
 
 
